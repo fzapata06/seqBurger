@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Two Pound Burgers</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/burger_style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
+
+  <body>
+    <div id="root">
+    <div class="container">
+
+    <p>For Very Hungry People ONLY!!!</p>
+
+    <div class="row content">
+        <div class="col-md-4">
+            <form action="/?_method=POST" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="burger" placeholder="Enter your burger" name="burger">
+                </div>
+                <button type="submit" class="btn">Submit Burger</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Soon to Be Devoured</div>
+                <div class="panel-body">
+                            <div class="row">
+                                <div class="col-sm-8">
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="devoured" value="true">
+                                        <button type="submit">DEVOUR!</button>
+                                    </form>
+                                </div>
+                            </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Devoured</div>
+                <div class="panel-body">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+    </div>
+    <script src="./burger.js"></script>
+  </body>
+</html>

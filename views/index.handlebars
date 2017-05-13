@@ -1,0 +1,51 @@
+<div class="container">
+
+    <img src="assets/img/vegan-planet-300x231.png" height="140">
+    <p>For the People&emsp;•&emsp;For the Planet</p>
+
+    <div class="row content">
+        <div class="col-md-4">
+            <form action="/?_method=POST" method="POST">
+                <div class="form-group">
+                    <input type="text" class="form-control" id="burger" placeholder="Enter a vegan dish." name="burger">
+                </div>
+                <button type="submit" class="btn">Submit Burger</button>
+            </form>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Waiting to Be Devoured</div>
+                <div class="panel-body">
+                    {{#each burgers}}
+                        {{#unless this.devoured}}
+                            <div class="row">
+                                <div class="col-sm-8">
+                                    <p>{{this.id}}. {{this.burger_name}}</p>
+                                </div>
+                                <div class="col-sm-4">
+                                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                                        <input type="hidden" name="devoured" value="true">
+                                        <button type="submit">DEVOUR!</button>
+                                    </form>
+                                </div>
+                            </div>
+                        {{/unless}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Devoured</div>
+                <div class="panel-body">
+                    {{#each burgers}}
+                        {{#if this.devoured}}
+                            <p class="bg-info text-muted">{{this.id}}. {{this.burger_name}}</p>
+                        {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
